@@ -1,0 +1,60 @@
+<h2>Listing bills</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Chamber</th>
+      <th>Number</th>
+      <th>Short title</th>
+      <th>Long title</th>
+      <th>Version</th>
+      <th>Version</th>
+      <th>Revno</th>
+      <th>Formatted ver</th>
+      <th>Apn</th>
+      <th>Local impact statement</th>
+      <th>Govsigned</th>
+      <th>Concurrence</th>
+      <th>Effective date</th>
+      <th>Effective date notes</th>
+      <th>Api link</th>
+      <th>Pdf download link</th>
+      <th>Html download link</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for bill <- @bills do %>
+    <tr>
+      <td><%= bill.name %></td>
+      <td><%= bill.chamber %></td>
+      <td><%= bill.number %></td>
+      <td><%= bill.short_title %></td>
+      <td><%= bill.long_title %></td>
+      <td><%= bill.version %></td>
+      <td><%= bill.version_id %></td>
+      <td><%= bill.revno %></td>
+      <td><%= bill.formatted_ver %></td>
+      <td><%= bill.apn %></td>
+      <td><%= bill.local_impact_statement %></td>
+      <td><%= bill.govsigned %></td>
+      <td><%= bill.concurrence %></td>
+      <td><%= bill.effective_date %></td>
+      <td><%= bill.effective_date_notes %></td>
+      <td><%= bill.api_link %></td>
+      <td><%= bill.pdf_download_link %></td>
+      <td><%= bill.html_download_link %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: bill_path(@conn, :show, bill), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: bill_path(@conn, :edit, bill), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: bill_path(@conn, :delete, bill), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New bill", to: bill_path(@conn, :new) %>

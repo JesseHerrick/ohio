@@ -1,0 +1,62 @@
+<h2>Listing resolutions</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Chamber</th>
+      <th>Number</th>
+      <th>Trackingno</th>
+      <th>Short title</th>
+      <th>Long title</th>
+      <th>Version</th>
+      <th>Version</th>
+      <th>Type</th>
+      <th>Revno</th>
+      <th>Formatted ver</th>
+      <th>Apn</th>
+      <th>Govsigned</th>
+      <th>Concurrence</th>
+      <th>Effective date</th>
+      <th>Effective date notes</th>
+      <th>Api link</th>
+      <th>Pdf download link</th>
+      <th>Html download link</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for resolution <- @resolutions do %>
+    <tr>
+      <td><%= resolution.name %></td>
+      <td><%= resolution.chamber %></td>
+      <td><%= resolution.number %></td>
+      <td><%= resolution.trackingno %></td>
+      <td><%= resolution.short_title %></td>
+      <td><%= resolution.long_title %></td>
+      <td><%= resolution.version %></td>
+      <td><%= resolution.version_id %></td>
+      <td><%= resolution.type %></td>
+      <td><%= resolution.revno %></td>
+      <td><%= resolution.formatted_ver %></td>
+      <td><%= resolution.apn %></td>
+      <td><%= resolution.govsigned %></td>
+      <td><%= resolution.concurrence %></td>
+      <td><%= resolution.effective_date %></td>
+      <td><%= resolution.effective_date_notes %></td>
+      <td><%= resolution.api_link %></td>
+      <td><%= resolution.pdf_download_link %></td>
+      <td><%= resolution.html_download_link %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: resolution_path(@conn, :show, resolution), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: resolution_path(@conn, :edit, resolution), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: resolution_path(@conn, :delete, resolution), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New resolution", to: resolution_path(@conn, :new) %>

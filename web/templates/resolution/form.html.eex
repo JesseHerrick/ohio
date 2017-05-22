@@ -1,0 +1,125 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :name, class: "control-label" %>
+    <%= text_input f, :name, class: "form-control" %>
+    <%= error_tag f, :name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :chamber, class: "control-label" %>
+    <%= text_input f, :chamber, class: "form-control" %>
+    <%= error_tag f, :chamber %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :number, class: "control-label" %>
+    <%= text_input f, :number, class: "form-control" %>
+    <%= error_tag f, :number %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :trackingno, class: "control-label" %>
+    <%= text_input f, :trackingno, class: "form-control" %>
+    <%= error_tag f, :trackingno %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :short_title, class: "control-label" %>
+    <%= text_input f, :short_title, class: "form-control" %>
+    <%= error_tag f, :short_title %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :long_title, class: "control-label" %>
+    <%= text_input f, :long_title, class: "form-control" %>
+    <%= error_tag f, :long_title %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :version, class: "control-label" %>
+    <%= text_input f, :version, class: "form-control" %>
+    <%= error_tag f, :version %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :version_id, class: "control-label" %>
+    <%= text_input f, :version_id, class: "form-control" %>
+    <%= error_tag f, :version_id %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :type, class: "control-label" %>
+    <%= text_input f, :type, class: "form-control" %>
+    <%= error_tag f, :type %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :revno, class: "control-label" %>
+    <%= number_input f, :revno, class: "form-control" %>
+    <%= error_tag f, :revno %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :formatted_ver, class: "control-label" %>
+    <%= text_input f, :formatted_ver, class: "form-control" %>
+    <%= error_tag f, :formatted_ver %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :apn, class: "control-label" %>
+    <%= text_input f, :apn, class: "form-control" %>
+    <%= error_tag f, :apn %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :govsigned, class: "control-label" %>
+    <%= text_input f, :govsigned, class: "form-control" %>
+    <%= error_tag f, :govsigned %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :concurrence, class: "control-label" %>
+    <%= text_input f, :concurrence, class: "form-control" %>
+    <%= error_tag f, :concurrence %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :effective_date, class: "control-label" %>
+    <%= text_input f, :effective_date, class: "form-control" %>
+    <%= error_tag f, :effective_date %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :effective_date_notes, class: "control-label" %>
+    <%= text_input f, :effective_date_notes, class: "form-control" %>
+    <%= error_tag f, :effective_date_notes %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :api_link, class: "control-label" %>
+    <%= text_input f, :api_link, class: "form-control" %>
+    <%= error_tag f, :api_link %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :pdf_download_link, class: "control-label" %>
+    <%= text_input f, :pdf_download_link, class: "form-control" %>
+    <%= error_tag f, :pdf_download_link %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :html_download_link, class: "control-label" %>
+    <%= text_input f, :html_download_link, class: "form-control" %>
+    <%= error_tag f, :html_download_link %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

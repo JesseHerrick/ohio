@@ -1,0 +1,6 @@
+<h2>Edit bill</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: bill_path(@conn, :update, @bill) %>
+
+<%= link "Back", to: bill_path(@conn, :index) %>
