@@ -2,17 +2,13 @@ defmodule Ohio.ChamberTest do
   use Ohio.ModelCase
 
   alias Ohio.Chamber
+  alias Ohio.Repo
 
-  @valid_attrs %{name: "some content"}
-  @invalid_attrs %{}
+  import Ohio.Factory
 
-  test "changeset with valid attributes" do
-    changeset = Chamber.changeset(%Chamber{}, @valid_attrs)
-    assert changeset.valid?
-  end
-
-  test "changeset with invalid attributes" do
-    changeset = Chamber.changeset(%Chamber{}, @invalid_attrs)
-    refute changeset.valid?
+  test "there may not be two chambers of the same name" do
+    Chamber.changeset(%Chamber{}, %{name: "House"}) |> Repo.insert
+    result = Chamber.changeset(%Chamber{}, %{name: "House"}) |> Repo.insert
+    IO.puts result
   end
 end

@@ -8,5 +8,6 @@ defmodule Ohio.Repo.Migrations.CreateChamber do
       timestamps()
     end
 
+    create unique_index(:chambers, [:name])
   end
 end

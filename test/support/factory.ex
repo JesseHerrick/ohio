@@ -1,6 +1,7 @@
 defmodule Ohio.Factory do
   use ExMachina.Ecto, repo: Ohio.Repo
 
+  # Model: Chamber
   def house_factory do
     %Ohio.Chamber{
       name: "House"
@@ -13,6 +14,7 @@ defmodule Ohio.Factory do
     }
   end
 
+  # Model: Bill
   def house_bill_factory do
     bill_num = sequence("")
 
