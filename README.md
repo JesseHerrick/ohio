@@ -1,4 +1,4 @@
-# OhioApp :flag_us:
+# OhioApp :us: :scroll: :newspaper:
 
 <img width="200px" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Ohio.svg"></img>
 
