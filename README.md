@@ -1,20 +1,7 @@
-# Ohio
+# OhioApp :flag_us:
 
-To start your Phoenix app:
+<img width="200px" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Ohio.svg"></img>
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `npm install`
-  * Start Phoenix endpoint with `mix phoenix.server`
+Ohio is a simple way of tracking the Ohio legislature as if it were a simple social media feed.
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+More to come!
