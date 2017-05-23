@@ -1,26 +1,16 @@
 defmodule Ohio.BillTest do
   use Ohio.ModelCase
+  import Ohio.Factory
 
   alias Ohio.Bill
+  alias Ohio.Repo
 
-  # @valid_attrs %{api_link: "some content", apn: "some content", chamber: "some content", concurrence: "some content", effective_date: "some content", effective_date_notes: "some content", formatted_ver: "some content", govsigned: "some content", html_download_link: "some content", local_impact_statement: "some content", long_title: "some content", name: "some content", number: "some content", pdf_download_link: "some content", revno: 42, short_title: "some content", version: "some content", version_id: "some content"}
-  # @invalid_attrs %{}
+  test "bill factory creates a valid bill" do
+    assert {:ok, bill} = build(:house_bill)
+    |> Repo.insert
+  end
 
-  # test "changeset with valid attributes" do
-  #   changeset = Bill.changeset(%Bill{}, @valid_attrs)
-  #   assert changeset.valid?
-  # end
-
-  # test "changeset with invalid attributes" do
-  #   changeset = Bill.changeset(%Bill{}, @invalid_attrs)
-  #   refute changeset.valid?
-  # end
-
-  import Ohio.Factory
-  require IEx
-
-  test "can create a bill" do
-    bill = insert(:house_bill)
-    IEx.pry
+  test "cannot create a bill without a chamber" do
+    refute Bill.changeset(%Bill{}, params_for(:house_bill, chamber_id: nil)).valid?
   end
 end
