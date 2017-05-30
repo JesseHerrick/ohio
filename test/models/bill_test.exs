@@ -5,9 +5,18 @@ defmodule Ohio.BillTest do
   alias Ohio.Bill
   alias Ohio.Repo
 
-  test "bill factory creates a valid bill" do
+  test "bill factory creates a valid house bill" do
     assert {:ok, bill} = build(:house_bill)
     |> Repo.insert
+
+    assert bill.chamber.name == "House"
+  end
+
+  test "bill factory creates a valid senate bill" do
+    assert {:ok, bill} = build(:senate_bill)
+    |> Repo.insert
+
+    assert bill.chamber.name == "Senate"
   end
 
   test "cannot create a bill without a chamber" do
