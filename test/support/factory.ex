@@ -65,9 +65,7 @@ defmodule Ohio.Factory do
     }
   end
 
-  def chamber_factory do
-  end
-
+  # Legislators, Committees, and Assignments
   def committee_factory do
 
   end
@@ -76,10 +74,10 @@ defmodule Ohio.Factory do
 
   end
 
-  def resolution_factory do
-
-  end
-
-  def vote_factory do
+  def assignment_factory do
+    %Ohio.Assignment{
+      legislator: build(:legislator),
+      committee: build(:committee)
+    }
   end
 end

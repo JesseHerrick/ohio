@@ -1,4 +1,11 @@
 defmodule Ohio.Assignment do
+  @moduledoc """
+  Map table for committee assignments.
+
+  Has one legislator and one committee, but a legislator can
+  be on multiple committees.
+  """
+
   use Ohio.Web, :model
 
   schema "assignments" do
