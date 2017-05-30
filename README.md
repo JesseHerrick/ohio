@@ -5,3 +5,13 @@
 Ohio is a simple way of tracking the Ohio legislature as if it were a simple social media feed.
 
 More to come!
+
+# Application Layout
+
+* Chamber (House/Senate)
+    * Legislator(s)
+        * Assignment(s)
+    * Committee(s)
+        * Assignment(s)
+    * Bill(s)/Resolution(s)
+        * Vote(s)
