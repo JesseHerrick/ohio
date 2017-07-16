@@ -9,7 +9,9 @@ defmodule Ohio.Committee do
     field :api_link, :string
 
     belongs_to :chamber, Ohio.Chamber
+
     has_many :assignments, Ohio.Assignment
+    has_many :members, through: [:assignments, :legislator]
 
     timestamps()
   end
@@ -19,7 +21,7 @@ defmodule Ohio.Committee do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:name, :revno, :apn, :active, :api_link])
-    |> validate_required([:name, :revno, :apn, :active, :api_link])
+    |> cast(params, [:name, :revno, :apn, :active, :api_link, :chamber_id])
+    |> validate_required([:name, :revno, :apn, :active, :api_link, :chamber_id])
   end
 end

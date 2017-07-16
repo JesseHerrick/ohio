@@ -12,7 +12,7 @@ defmodule Ohio.ResolutionTest do
   end
 
   test "can create a Senate resolution" do
-    assert {:ok, res} = build(:house_resolution)
+    assert {:ok, res} = build(:senate_resolution)
     |> Repo.insert
 
     assert res.chamber.name == "Senate"

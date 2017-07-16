@@ -1,6 +1,5 @@
 defmodule Ohio.BillTest do
   use Ohio.ModelCase
-  import Ohio.Factory
 
   alias Ohio.Bill
   alias Ohio.Repo

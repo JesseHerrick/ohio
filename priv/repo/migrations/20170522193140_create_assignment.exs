@@ -11,5 +11,6 @@ defmodule Ohio.Repo.Migrations.CreateAssignment do
 
     create index(:assignments, [:legislator_id])
     create index(:assignments, [:committee_id])
+    create unique_index(:assignments, [:legislator_id, :committee_id], name: :legislator_committee_key)
   end
 end

@@ -22,6 +22,7 @@ defmodule Ohio.ModelCase do
       import Ecto.Changeset
       import Ecto.Query
       import Ohio.ModelCase
+      import Ohio.Factory
     end
   end
 

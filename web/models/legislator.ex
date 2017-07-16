@@ -3,6 +3,8 @@ defmodule Ohio.Legislator do
 
   schema "legislators" do
     has_many :assignments, Ohio.Assignment
+    has_many :committees, through: [:assignments, :committee]
+
     belongs_to :chamber, Ohio.Chamber
 
     field :firstname, :string
@@ -14,7 +16,7 @@ defmodule Ohio.Legislator do
     field :displayname, :string
     field :sponsorname, :string
     field :aemembsponsor, :string
-    field :revno, :string
+    field :revno, :integer
     field :apn, :string
     field :active, :boolean, default: false
     field :api_link, :string
@@ -28,7 +30,7 @@ defmodule Ohio.Legislator do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:firstname, :lastname, :lpid, :district, :med_id, :position, :displayname, :sponsorname, :aemembsponsor, :revno, :apn, :active, :api_link, :partyid])
-    |> validate_required([:firstname, :lastname, :lpid, :district, :med_id, :position, :displayname, :sponsorname, :aemembsponsor, :revno, :apn, :active, :api_link, :partyid])
+    |> cast(params, [:firstname, :lastname, :lpid, :district, :med_id, :position, :displayname, :sponsorname, :aemembsponsor, :revno, :apn, :active, :api_link, :partyid, :chamber_id])
+    |> validate_required([:firstname, :lastname, :lpid, :district, :med_id, :position, :displayname, :sponsorname, :aemembsponsor, :revno, :apn, :active, :api_link, :partyid, :chamber_id])
   end
 end

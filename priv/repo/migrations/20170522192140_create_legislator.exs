@@ -12,7 +12,7 @@ defmodule Ohio.Repo.Migrations.CreateLegislator do
       add :displayname, :string
       add :sponsorname, :string
       add :aemembsponsor, :string
-      add :revno, :string
+      add :revno, :integer
       add :apn, :string
       add :active, :boolean, default: false, null: false
       add :api_link, :string

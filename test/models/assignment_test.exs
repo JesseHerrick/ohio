@@ -2,36 +2,31 @@ defmodule Ohio.AssignmentTest do
   use Ohio.ModelCase
 
   alias Ohio.Assignment
+  alias Ohio.Repo
 
-  test "Assignment.find_by_committee/1 can find all legislators on a particular committee" do
-    committee = insert(:committee)
+  test "a legislator may not be assigned twice to a committee" do
+    house = Ohio.Chamber.house
+    committee = insert(:house_committee, chamber: house)
+    legislator = insert(:house_legislator)
 
-    # Makes a new legislator and assigns them to the committee, `committee`.
-    legislators_on_committee = [
-      insert(:assignment, committee: committee).legislator,
-      insert(:assignment, committee: committee).legislator,
-      insert(:assignment, committee: committee).legislator,
-      insert(:assignment, committee: committee).legislator,
-      insert(:assignment, committee: committee).legislator
-    ]
+    assert {:ok, _} = %Ohio.Assignment{}
+    |> Ohio.Assignment.changeset(
+      %{
+        legislator_id: legislator.id,
+        committee_id: committee.id
+      }
+    )
+    |> Repo.insert
 
-      # Should return a list of legislators on the committee.
-      assert] Assignment.find_by_committee(committee.id) == legislators_on_committee
-  end
+    refute Repo.all(Ohio.Assignment) == []
 
-  test "Assignment.find_by_legislator/1 can find all committees assigned to a particular legislator" do
-    legislator = insert(:legislator)
-
-    # Makes a new committee and assigns our `legislator` to it.
-    committees_assigned_to_legislator = [
-      insert(:assignment, legislator: legislator).committee,
-      insert(:assignment, legislator: legislator).committee,
-      insert(:assignment, legislator: legislator).committee,
-      insert(:assignment, legislator: legislator).committee,
-      insert(:assignment, legislator: legislator).committee
-    ]
-
-
-    assert Assignment.find_by_legislator(legislator.id) == committees_assigned_to_legislator
+    assert {:error, _} = %Ohio.Assignment{}
+    |> Ohio.Assignment.changeset(
+      %{
+        legislator_id: legislator.id,
+        committee_id: committee.id
+      }
+    )
+    |> Repo.insert
   end
 end

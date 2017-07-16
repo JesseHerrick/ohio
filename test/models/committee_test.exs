@@ -3,7 +3,7 @@ defmodule Ohio.CommitteeTest do
 
   alias Ohio.Committee
 
-  @valid_attrs %{active: true, api_link: "some content", apn: "some content", name: "some content", revno: 42}
+  @valid_attrs %{active: true, api_link: "some content", apn: "some content", name: "some content", revno: 42, chamber_id: 1}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

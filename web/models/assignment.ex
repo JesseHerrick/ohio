@@ -7,6 +7,8 @@ defmodule Ohio.Assignment do
   """
 
   use Ohio.Web, :model
+  alias Ohio.Repo
+  import Ecto.Query
 
   schema "assignments" do
     belongs_to :legislator, Ohio.Legislator
@@ -20,7 +22,8 @@ defmodule Ohio.Assignment do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [])
-    |> validate_required([])
+    |> cast(params, [:legislator_id, :committee_id])
+    |> validate_required([:legislator_id, :committee_id])
+    |> unique_constraint(:legislator_and_committee_not_unique, name: :legislator_committee_key)
   end
 end
