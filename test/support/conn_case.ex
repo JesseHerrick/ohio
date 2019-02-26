@@ -1,11 +1,11 @@
-defmodule Ohio.ConnCase do
+defmodule OhioWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
 
   Such tests rely on `Phoenix.ConnTest` and also
   import other functionality to make it easier
-  to build and query models.
+  to build common data structures and query the data layer.
 
   Finally, if the test case interacts with the database,
   it cannot be async. For this reason, every test runs
@@ -19,16 +19,10 @@ defmodule Ohio.ConnCase do
     quote do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
-
-      alias Ohio.Repo
-      import Ecto
-      import Ecto.Changeset
-      import Ecto.Query
-
-      import Ohio.Router.Helpers
+      alias OhioWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
-      @endpoint Ohio.Endpoint
+      @endpoint OhioWeb.Endpoint
     end
   end
 
