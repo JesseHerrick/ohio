@@ -2,8 +2,6 @@
 
 <img width="200px" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Ohio.svg"></img>
 
-[![Build Status](https://travis-ci.org/JesseHerrick/ohio.svg?branch=master)](https://travis-ci.org/JesseHerrick/ohio)
-
 Ohio is a simple way of tracking the Ohio legislature as if it were a simple social media feed.
 
 # Working with the Ohio General Assembly's Data
